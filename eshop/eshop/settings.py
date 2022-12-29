@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from django.core.mail import backends
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'products',
     'accounts',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -127,7 +129,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 STATICFILES_DIR = {
-    os.path.join(BASE_DIR , "hotels/static")
+    os.path.join(BASE_DIR , "public/static")
 }
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'public/static') 
@@ -137,3 +139,15 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# email setting
+if not DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.beckends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT =  587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = 'django.python.learning@gmail.com'
+    EMAIL_HOST_PASSWORD = 'Sushant7'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
