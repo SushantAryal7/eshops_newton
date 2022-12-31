@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %} {% block start%}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">quantity</th>
+      <th scope="col">product</th>
+      <th scope="col">price</th>
+      <th scope="col">remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ca in cart%}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{cart_item.get_product_price}}</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

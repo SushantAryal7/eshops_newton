@@ -115,7 +115,9 @@
                   <a href="#" class="icon icon-sm rounded-circle border"
                     ><i class="fa fa-shopping-cart"></i
                   ></a>
-                  <span class="badge badge-pill badge-danger notify">0</span>
+                  <span class="badge badge-pill badge-danger notify"
+                    >{{request.user.profile.get_cart_count}}</span
+                  >
                 </div>
                 <div class="widget-header icontext">
                   <a href="#" class="icon icon-sm rounded-circle border"

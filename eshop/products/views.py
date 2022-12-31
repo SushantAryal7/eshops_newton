@@ -1,16 +1,15 @@
-from django.shortcuts import render
-from products.models import Product 
+from django.shortcuts import render , redirect
+from django.http import HttpResponseRedirect , HttpResponse
+
+from products.models import Product , SizeVariant
+from accounts.models import Cart , CartItems , Profile 
 # Create your views here.
 
 
 def get_product(request, slug):
-    print('1')
     try:
-        print('2')
         product = Product.objects.get(slug=slug)
-        print(3)
         context = {'product' : product}
-        print('4')
 
         if request.GET.get('size'):
             size = request.GET.get('size')
@@ -22,3 +21,6 @@ def get_product(request, slug):
         return render(request, 'product/product.html', context = context)
     except Exception as e:
         print(e)
+
+
+
