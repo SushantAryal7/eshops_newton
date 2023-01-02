@@ -10,12 +10,15 @@
     </tr>
   </thead>
   <tbody>
-    {% for ca in cart%}
+    {% for carts in cart_items %}
     <tr>
       <th scope="row">1</th>
-      <td>{{cart_item.get_product_price}}</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>{{carts.product}}</td>
+      <td>{{carts.get_product_price}}</td>
+      <td>
+        href="{% url 'remove_cart' carts.uid %} "
+        <h3>Remove</h3>
+      </td>
     </tr>
     {% endfor %}
   </tbody>
