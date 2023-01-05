@@ -1,5 +1,6 @@
 from django.db import models
 from base.models import BaseModel
+# pip install django-autoslug
 from autoslug import AutoSlugField
 
 # Create your models here.
